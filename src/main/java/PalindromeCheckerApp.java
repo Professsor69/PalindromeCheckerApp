@@ -139,5 +139,75 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(dequeWord + " is NOT a Palindrome");
         }
+        System.out.println("\n--- UC8: Linked List Based Palindrome Check ---");
+
+        class Node {
+            char data;
+            Node next;
+
+            Node(char data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+
+        String linkedWord = "radar";
+
+// Build linked list
+        Node head = null;
+        Node tail = null;
+
+        for(int i = 0; i < linkedWord.length(); i++) {
+            Node newNode = new Node(linkedWord.charAt(i));
+
+            if(head == null) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+        }
+
+// Find middle (fast/slow pointer)
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+// Reverse second half
+        Node prev = null;
+        Node curr = slow;
+
+        while(curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+// Compare halves
+        Node first = head;
+        Node second = prev;
+
+        boolean isPalindromeLL = true;
+
+        while(second != null) {
+            if(first.data != second.data) {
+                isPalindromeLL = false;
+                break;
+            }
+            first = first.next;
+            second = second.next;
+        }
+
+        if(isPalindromeLL) {
+            System.out.println(linkedWord + " is a Palindrome");
+        } else {
+            System.out.println(linkedWord + " is NOT a Palindrome");
+        }
     }
 }
