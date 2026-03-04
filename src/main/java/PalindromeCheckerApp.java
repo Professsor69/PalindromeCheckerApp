@@ -151,6 +151,33 @@ public class PalindromeCheckerApp {
 
         strategy = new DequeStrategy();
         System.out.println(strategy.checkPalindrome(strategyWord) ? strategyWord + " is a Palindrome (Deque Strategy)" : strategyWord + " is NOT a Palindrome");
+        System.out.println("\n--- UC13: Performance Comparison ---");
+
+        String perfWord = "racecar";
+
+// Stack Strategy timing
+        PalindromeStrategy stackStrategy = new StackStrategy();
+
+        long startTime = System.nanoTime();
+        boolean stackResult = stackStrategy.checkPalindrome(perfWord);
+        long endTime = System.nanoTime();
+
+        long stackTime = endTime - startTime;
+
+// Deque Strategy timing
+        PalindromeStrategy dequeStrategy = new DequeStrategy();
+
+        startTime = System.nanoTime();
+        boolean dequeResult = dequeStrategy.checkPalindrome(perfWord);
+        endTime = System.nanoTime();
+
+        long dequeTime = endTime - startTime;
+
+        System.out.println("Stack Strategy Result: " + stackResult);
+        System.out.println("Stack Strategy Time: " + stackTime + " ns");
+
+        System.out.println("Deque Strategy Result: " + dequeResult);
+        System.out.println("Deque Strategy Time: " + dequeTime + " ns");
     }
 
     static class PalindromeChecker {
