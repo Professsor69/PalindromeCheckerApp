@@ -60,5 +60,28 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(text + " is NOT a Palindrome");
         }
+        System.out.println("\n--- UC5: Stack Based Palindrome Check ---");
+
+        String stackWord = "madam";
+
+        java.util.Stack<Character> stack = new java.util.Stack<>();
+
+// Push characters to stack
+        for(int i = 0; i < stackWord.length(); i++) {
+            stack.push(stackWord.charAt(i));
+        }
+
+// Pop characters to build reversed string
+        String reversedWord = "";
+        while(!stack.isEmpty()) {
+            reversedWord = reversedWord + stack.pop();
+        }
+
+// Compare
+        if(stackWord.equals(reversedWord)) {
+            System.out.println(stackWord + " is a Palindrome");
+        } else {
+            System.out.println(stackWord + " is NOT a Palindrome");
+        }
     }
 }
