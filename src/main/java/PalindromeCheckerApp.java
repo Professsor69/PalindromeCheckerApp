@@ -6,24 +6,35 @@ public class PalindromeCheckerApp {
         System.out.println("=================================");
         System.out.println("        PALINDROME CHECKER APP        ");
         System.out.println("=================================");
-
         System.out.println("Application Name : Palindrome Checker App");
         System.out.println("Version : 1.0");
 
-        System.out.println("Welcome to the Palindrome Checker Application!");
-        System.out.println("The program will check whether a given string is a palindrome.");
-
-        System.out.println("\n------ UC2: Hardcoded Palindrome Check ------");
-
         // UC2 - Hardcoded Palindrome
-        String word = "madam";
+        System.out.println("\n--- UC2: Hardcoded Palindrome Check ---");
 
+        String word = "madam";
         String reversed = new StringBuilder(word).reverse().toString();
 
         if(word.equals(reversed)) {
-            System.out.println(word + " is a Palindrome.");
+            System.out.println(word + " is a Palindrome");
         } else {
-            System.out.println(word + " is NOT a Palindrome.");
+            System.out.println(word + " is NOT a Palindrome");
+        }
+
+        // UC3 - Reverse String using Loop
+        System.out.println("\n--- UC3: Palindrome using Reverse Loop ---");
+
+        String original = "level";
+        String reverse = "";
+
+        for(int i = original.length() - 1; i >= 0; i--) {
+            reverse = reverse + original.charAt(i);
+        }
+
+        if(original.equals(reverse)) {
+            System.out.println(original + " is a Palindrome");
+        } else {
+            System.out.println(original + " is NOT a Palindrome");
         }
     }
 }
