@@ -83,5 +83,32 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(stackWord + " is NOT a Palindrome");
         }
+        System.out.println("\n--- UC6: Queue + Stack Palindrome Check ---");
+
+        String data = "level";
+
+        java.util.Stack<Character> stack2 = new java.util.Stack<>();
+        java.util.Queue<Character> queue = new java.util.LinkedList<>();
+
+// Push into stack and enqueue into queue
+        for(int i = 0; i < data.length(); i++) {
+            stack2.push(data.charAt(i));
+            queue.add(data.charAt(i));
+        }
+
+        boolean isPalin = true;
+
+        while(!stack2.isEmpty()) {
+            if(stack2.pop() != queue.remove()) {
+                isPalin = false;
+                break;
+            }
+        }
+
+        if(isPalin) {
+            System.out.println(data + " is a Palindrome");
+        } else {
+            System.out.println(data + " is NOT a Palindrome");
+        }
     }
 }
