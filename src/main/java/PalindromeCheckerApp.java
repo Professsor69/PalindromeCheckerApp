@@ -110,5 +110,34 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(data + " is NOT a Palindrome");
         }
+        System.out.println("\n--- UC7: Deque Based Optimized Palindrome Check ---");
+
+        String dequeWord = "racecar";
+
+        java.util.Deque<Character> deque = new java.util.ArrayDeque<>();
+
+// Insert characters into deque
+        for(int i = 0; i < dequeWord.length(); i++) {
+            deque.addLast(dequeWord.charAt(i));
+        }
+
+        boolean palindrome = true;
+
+// Compare front and rear
+        while(deque.size() > 1) {
+            char front = deque.removeFirst();
+            char rear = deque.removeLast();
+
+            if(front != rear) {
+                palindrome = false;
+                break;
+            }
+        }
+
+        if(palindrome) {
+            System.out.println(dequeWord + " is a Palindrome");
+        } else {
+            System.out.println(dequeWord + " is NOT a Palindrome");
+        }
     }
 }
