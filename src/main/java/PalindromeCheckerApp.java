@@ -1,5 +1,15 @@
 public class PalindromeCheckerApp {
+    static boolean isPalindromeRecursive(String str, int start, int end) {
+        if(start >= end) {
+            return true;
+        }
 
+        if(str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        return isPalindromeRecursive(str, start + 1, end - 1);
+    }
     public static void main(String[] args) {
 
         // UC1 - Welcome Message
@@ -208,6 +218,18 @@ public class PalindromeCheckerApp {
             System.out.println(linkedWord + " is a Palindrome");
         } else {
             System.out.println(linkedWord + " is NOT a Palindrome");
+        }
+        // UC9 - Recursive Palindrome Check
+        System.out.println("\n--- UC9: Recursive Palindrome Check ---");
+
+        String recWord = "madam";
+
+        boolean result = isPalindromeRecursive(recWord, 0, recWord.length() - 1);
+
+        if(result) {
+            System.out.println(recWord + " is a Palindrome");
+        } else {
+            System.out.println(recWord + " is NOT a Palindrome");
         }
     }
 }
