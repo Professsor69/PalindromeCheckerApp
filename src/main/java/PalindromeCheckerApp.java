@@ -231,5 +231,24 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println(recWord + " is NOT a Palindrome");
         }
+        // UC10 - Case Insensitive & Space Ignored Palindrome
+        System.out.println("\n--- UC10: Case-Insensitive & Space-Ignored Palindrome ---");
+
+        String input = "Never Odd Or Even";
+
+// Normalize string
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+
+        String reversedInput = "";
+
+        for(int i = normalized.length() - 1; i >= 0; i--) {
+            reversedInput = reversedInput + normalized.charAt(i);
+        }
+
+        if(normalized.equals(reversedInput)) {
+            System.out.println("\"" + input + "\" is a Palindrome (ignoring case & spaces)");
+        } else {
+            System.out.println("\"" + input + "\" is NOT a Palindrome");
+        }
     }
 }
